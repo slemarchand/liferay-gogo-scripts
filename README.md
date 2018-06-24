@@ -21,8 +21,8 @@ sudo apt-get install expect
 * RHEL, Fedora, CentOS and other Linux distros supporting YUM:
 
 ```
-sudo apt-get install telnet
-sudo apt-get install expect
+sudo yum install telnet
+sudo yum install expect
 ```
 * macOS:
 
