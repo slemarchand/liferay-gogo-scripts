@@ -18,7 +18,7 @@ sudo apt-get install expect
 sudo yum install telnet
 sudo yum install expect
 ```
-* macOS:
+* macOS with [Homebrew](https://brew.sh/):
 
 ```
 brew install telnet
