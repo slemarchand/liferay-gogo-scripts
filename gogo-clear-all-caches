@@ -99,6 +99,6 @@ expect {
 }
 
 set output [string range $output [string first "\n" $output]+1 [string last "\n" $output]-1]
-if { $return_code == 0 } { send_user "$output\n" } else { send_error "$output\n" }
+if { $return_code == 0 } { send_user "$output\n" } else { send_error "$output\n" }
 
 exit $return_code
