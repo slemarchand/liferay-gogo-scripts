@@ -10,9 +10,28 @@ To start, just install the usual commands `telnet` and `expect` then drop script
 
 ### Prerequisites
 
-The commands `telnet` and `expect` are the only prerequisites.
+The commands `telnet` and `expect` are the only prerequisites. They can be installed by the following commands:
 
-### Installing
+* Debian, Ubuntu and other Linux distros supporting APT:
+
+```
+sudo apt-get install telnet
+sudo apt-get install expect
+```
+* RHEL, Fedora, CentOS and other Linux distros supporting YUM:
+
+```
+sudo apt-get install telnet
+sudo apt-get install expect
+```
+* macOS:
+
+```
+brew install telnet
+brew install expect
+```
+
+### Installation
 
 1. Download the [archive](https://github.com/slemarchand/liferay-gogo-scripts/archive/master.zip) from Github
 
