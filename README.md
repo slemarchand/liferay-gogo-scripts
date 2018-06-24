@@ -34,6 +34,22 @@ sudo mkdir -p /opt/liferay-gogo-scripts && sudo cp liferay-gogo-scripts-master/g
 
 4. Add the directory to the `$PATH` environment variable
 
+## Usage
+
+### Configuration
+
+All of the scripts can be configured by the following environment variables:
+
+* `GOGO_HOST`: The host used to connect to Gogo Shell. If the variable is not set, the host used is `localhost`.
+
+* `GOGO_PORT`: The port used to connect to Gogo Shell. If the variable is not set, the host used is `11311`.
+
+### Scripts
+
+#### gogo-shell
+
+#### gogo-groovy
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
