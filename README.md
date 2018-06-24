@@ -10,7 +10,7 @@ The commands `telnet` and `expect` are the only prerequisites.
 
 ### Installing
 
-1. Download the archive from Github
+1. Download the [archive](https://github.com/slemarchand/liferay-gogo-scripts/archive/master.zip) from Github
 
 2. Extract archive
 
