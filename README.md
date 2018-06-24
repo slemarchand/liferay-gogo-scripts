@@ -24,7 +24,19 @@ All of the scripts can be configured by the following environment variables:
 
 #### gogo-shell
 
+Execute a Gogo Shell statement, such as it would be executed via the interactive shell.
+
+```
+gogo-shell <gogo-shell-statement>
+```
+
 #### gogo-groovy
+
+Execute a Groovy statement, such as it would be executed via the script console of Control Panel. 
+
+```
+gogo-groovy <groovy-statement>
+```
 
 ## License
 
