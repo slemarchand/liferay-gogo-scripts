@@ -14,11 +14,21 @@ Read the [INSTALL.md](INSTALL.md) file for details.
 
 ### Configuration
 
-All of the scripts can be configured by the following environment variables:
+All the scripts can be configured by the following environment variables:
 
 * `GOGO_HOST`: The host used to connect to Gogo Shell. If the variable is not set, the host used is `localhost`.
 
 * `GOGO_PORT`: The port used to connect to Gogo Shell. If the variable is not set, the host used is `11311`.
+
+### Error management
+
+All the scripts return proper exit status:
+
+* in case of success the return code is `0`,
+
+* and in case of failure, the return code is `1`.
+
+Furthermore, when an error occurs, the error message is printed to the standard output.
 
 ### Scripts
 
