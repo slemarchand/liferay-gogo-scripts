@@ -16,6 +16,17 @@ The commands `telnet` and `expect` are the only prerequisites.
 wget https://github.com/slemarchand/liferay-gogo-scripts/archive/master.zip
 ```
 
-2. Extract archive
+2. Extract archive 
 
-3. Add the directory to your path
+```
+unzip master.zip
+```
+
+3. Copy scripts to the desired install directory, for example `/opt/liferay-gogo-scripts`
+
+```
+sudo mkdir -p /opt/liferay-gogo-scripts && sudo cp liferay-gogo-scripts-master/gogo-* /opt/liferay-gogo-scripts
+```
+
+4. Add the directory to your path
+
