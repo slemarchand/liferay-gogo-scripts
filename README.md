@@ -28,5 +28,6 @@ unzip master.zip
 sudo mkdir -p /opt/liferay-gogo-scripts && sudo cp liferay-gogo-scripts-master/gogo-* /opt/liferay-gogo-scripts
 ```
 
-4. Add the directory to your path
+4. Add the directory to the `$PATH` environment variable
+
 
