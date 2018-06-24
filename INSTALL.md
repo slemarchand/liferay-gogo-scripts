@@ -1,6 +1,6 @@
 # Installing Liferay Gogo Scripts
 
-tl;dr Just install the usual commands `telnet` and `expect` then drop script files into a directory on your `$PATH`. 
+tl;dr Just install the usual commands `telnet` and `expect` then drop script files into a directory on your `$PATH` and finally set execution permissions on the scripts. 
 
 ## Prerequisites
 
@@ -45,4 +45,10 @@ unzip master.zip
 sudo mkdir -p /opt/liferay-gogo-scripts && sudo cp liferay-gogo-scripts-master/gogo-* /opt/liferay-gogo-scripts
 ```
 
-4. Add the directory to the `$PATH` environment variable
+4. Set execution permissions on the scripts
+
+```
+sudo chmod a+x /opt/liferay-gogo-scripts/*
+```
+
+5. Add the directory to the `$PATH` environment variable
