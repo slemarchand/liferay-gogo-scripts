@@ -6,7 +6,9 @@ The Liferay Gogo Scripts is a set of scripts to perform various administration t
 
 ## Installation
 
-Just install the usual commands `telnet` and `expect` then drop the *Liferay Gogo Scripts files* into a directory on your `$PATH`. Read the [INSTALL.md](INSTALL.md) file for details.
+Install the usual commands `telnet` and `expect` as prerequisites, then drop the *Liferay Gogo Scripts* files into a directory on your `$PATH`. 
+
+Read the [INSTALL.md](INSTALL.md) file for details.
 
 ## Usage
 
