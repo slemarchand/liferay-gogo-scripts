@@ -1,5 +1,7 @@
 # Liferay Gogo Scripts
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
 The Liferay Gogo Scripts is a set of scripts to perform various administration tasks related to Liferay. These scripts use Gogo Shell and are intented to be building blocks for automation.
 
 ## Getting Started
@@ -32,4 +34,6 @@ sudo mkdir -p /opt/liferay-gogo-scripts && sudo cp liferay-gogo-scripts-master/g
 
 4. Add the directory to the `$PATH` environment variable
 
+## License
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
