@@ -79,17 +79,17 @@ send -- " \
 
 set output ""
 expect {
-	"g!" {
-		append output $expect_out(buffer)
-		set return_code 0	
-	}
 	"gogo:*g!" {
 		append output $expect_out(buffer)
 		set return_code 1
 	}
+	"g!" {
+		append output $expect_out(buffer)
+		set return_code 0	
+	}
 	default {
 		append output $expect_out(buffer)
-		send_user "$output"
+		send_error "$output"
 		exit 1	
 	}
 	full_buffer {
@@ -99,6 +99,6 @@ expect {
 }
 
 set output [string range $output [string first "\n" $output]+1 [string last "\n" $output]-1]
-send_user "$output\n"
+if { $return_code == 0 } { send_user "$output\n" } else {  send_error "$output\n" }
 
 exit $return_code

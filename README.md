@@ -28,7 +28,7 @@ All the scripts return proper exit status:
 
 * and in case of failure, the return code is `1`.
 
-Furthermore, when an error occurs, the error message is printed to the standard output.
+Furthermore, when an error occurs, the error message is printed to the error output.
 
 ### Scripts
 
