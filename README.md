@@ -1,4 +1,4 @@
-# liferay-gogo-scripts
+# Liferay Gogo Scripts
 
 The Liferay Gogo Scripts is a set of scripts to perform various administration tasks related to Liferay. These scripts use Gogo Shell and are intented to be building blocks for automation.
 
