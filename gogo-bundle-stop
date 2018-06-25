@@ -1,0 +1,137 @@
+#!/usr/bin/expect -f
+
+# MIT License
+#
+# Copyright (c) 2018-present Sebastien Le Marchand
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+# 
+# Further documentation: https://github.com/slemarchand/liferay-gogo-scripts
+#
+
+if { $argc < 1 } {
+	set command [file tail $argv0]
+	send_user "usage: $command <bundle-symbolic-name> \[<bundle-version>\]\n"
+	exit 1
+}
+
+# Prepare processing
+
+global env
+if { [info exists env(GOGO_HOST)] } { set host $env(GOGO_HOST) } else { set host "localhost" }
+if { [info exists env(GOGO_PORT)] } { set port $env(GOGO_PORT) } else { set port "11311" } 
+
+log_user 0
+
+if [catch {
+	spawn telnet $host $port
+} err] {
+	send_user "$err\n"
+	exit 1
+}
+
+set output ""
+expect {
+	"g!" {
+	}
+	default {
+		append output $expect_out(buffer)
+		send_user "$output"
+		exit 1	
+	}
+	full_buffer {
+	     append output $expect_out(buffer)
+	     exp_continue
+    }
+}
+
+# Process
+
+set name [lindex $argv 0];
+if { $argc > 1 } {
+	set version [lindex $argv 1];
+} else {
+	set version ""
+}
+
+set groovy_script " \
+	import com.liferay.portal.scripting.groovy.internal.*; \
+	import org.osgi.framework.*; \
+	BUNDLE_SYMBOLIC_NAME ='$name'; \
+	BUNDLE_VERSION = '$version'; \
+	Bundle\[\] bundles = FrameworkUtil.getBundle(GroovyExecutor.class).getBundleContext().getBundles(); \
+	Bundle foundBundle = null; \
+	for (bundle in bundles) { \
+		if(bundle.getSymbolicName().equals(BUNDLE_SYMBOLIC_NAME)) { \
+			if(foundBundle == null && (BUNDLE_VERSION == '' || bundle.getVersion().toString().equals(BUNDLE_VERSION))) { \
+				foundBundle = bundle; \
+			}; \
+		}; \
+	}; \
+	if(foundBundle == null) { \
+		throw new Exception('Bundle not found for symbolic name ' + BUNDLE_SYMBOLIC_NAME  + ' and version ' + (BUNDLE_VERSION!=''?BUNDLE_VERSION:'ANY')); \
+	}; \
+	foundBundle.stop(); \
+";
+
+send -- " \
+($.context getService (( \
+  $.context getServiceReferences \
+    com.liferay.portal.kernel.scripting.ScriptingExecutor \
+    \"(scripting.language=groovy)\" \
+) 0)) eval null null null \"$groovy_script\" \
+\n"
+
+# Return result
+
+set output ""
+expect {
+	"^gogo:*g!" {
+		append output $expect_out(buffer)
+		set return_code 1
+	}
+	"g!" {
+		append output $expect_out(buffer)
+		set return_code 0	
+	}
+	default {
+		append output $expect_out(buffer)
+		send_error "$output"
+		exit 1	
+	}
+	full_buffer {
+        append output $expect_out(buffer)
+        exp_continue
+    }
+}
+
+set output [string range $output [string first "\n" $output]+1 [string last "\n" $output]-1]
+if { $return_code == 0 } { send_user "$output\n" } else { send_error "$output\n" }
+
+exit $return_code
+
+if(foundBundle != null) { \
+		state = states.get(foundBundle.getState()); \
+		println(state); \
+	} else { \	
+		throw new Exception(''); \
+	}; \
+
+#		
