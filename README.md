@@ -2,13 +2,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-The Liferay Gogo Scripts is a set of scripts to perform various administration tasks related to Liferay. These scripts use Gogo Shell and are intented to be building blocks for automation.
+The Liferay Gogo Scripts is a set of scripts to perform various administration tasks related to Liferay 7. These scripts use Gogo Shell and are intented to be building blocks for automation.
 
 ## Installation
 
 Install the usual commands `telnet` and `expect` as prerequisites, then drop the *Liferay Gogo Scripts* files into a directory on your `$PATH`, and finally set execution permissions on the scripts. 
 
-Read the [INSTALL.md](INSTALL.md) file for details.
+Read the [INSTALL](INSTALL.md) file for details.
 
 ## Usage
 
