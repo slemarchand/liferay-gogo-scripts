@@ -217,6 +217,16 @@ gogo-cleanup-portlet-preferences
 
 This process removes all orphaned portlet preferences that belong to page revisions. Portlet preferences that belong to a portlet that does not belong to a page revision will be removed. Portlet preferences that belong to runtime portlets will also be removed.
 
+#### gogo-delete-dl-previews
+
+Reset preview and thumbnail files for Documents and Media.
+
+Syntax:
+
+```
+gogo-delete-dl-previews
+```
+
 #### gogo-verify-plugin-table
 
 Verify plugin table.
