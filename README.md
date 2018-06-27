@@ -40,6 +40,23 @@ Syntax:
 
 ```
 gogo-shell <gogo-shell-statement>
+``` 
+
+Examples:
+
+```
+$ gogo-shell lb -s | grep com.liferay.portal.search
+  179|Active     |   10|com.liferay.portal.search (4.0.7)
+  180|Active     |   10|com.liferay.portal.search.api (1.1.2)
+  181|Active     |   10|com.liferay.portal.search.elasticsearch (2.1.27)
+  182|Active     |   10|com.liferay.portal.search.facet (2.0.11)
+  183|Active     |   10|com.liferay.portal.search.web (2.0.2)
+  184|Active     |   10|com.liferay.portal.search.web.api (1.0.2)
+```
+
+```
+$ gogo-shell 'echo "Hello Gogo Shell"'
+Hello Gogo Shell
 ```
 
 #### gogo-shell-script
@@ -62,6 +79,13 @@ Syntax:
 gogo-groovy <groovy-statement>
 ```
 
+Example:
+
+```
+$ gogo-groovy 'println("Hello Groovy")'
+Hello Groovy
+```
+
 #### gogo-groovy-script
 
 Execute a Groovy script from a file located on the Liferay Server host.
@@ -71,6 +95,25 @@ Syntax:
 ```
 gogo-groovy <remote-groovy-script-path>
 ```
+
+#### gogo-bundle-get-version
+
+Print the version of a particular bundle.
+
+Syntax:
+
+```
+gogo-bundle-get-version <bundle-symbolic-name>
+```
+
+Examples:
+
+```
+$ gogo-bundle-get-version com.liferay.portal.search
+4.0.7
+```
+
+If there are several bundles with the same symbolic name, each version is printed on a new line.
 
 #### gogo-bundle-get-state
 
@@ -82,6 +125,117 @@ Syntax:
 gogo-bundle-get-version <bundle-symbolic-name> [<bundle-version>]
 ```
 
+Examples
+
+```
+$ gogo-bundle-get-version com.liferay.portal.search
+ACTIVE
+```
+
+```
+$ gogo-bundle-get-version com.liferay.portal.search 4.0.7
+ACTIVE
+```
+
+If the bundle version is not provided and there are several bundles with the same symbolic name, only the state of one of the bundle is printed.
+
+#### gogo-bundle-start
+
+Start a particular bundle.
+
+Syntax:
+
+```
+gogo-bundle-start <bundle-symbolic-name> [<bundle-version>]
+```
+
+#### gogo-bundle-stop
+
+Stop a particular bundle.
+
+Syntax:
+
+```
+gogo-bundle-stop <bundle-symbolic-name> [<bundle-version>]
+```
+
+#### gogo-set-log-level
+
+Set log level for a particular logger.
+
+Syntax:
+
+```
+gogo-set-log-level <logger-name> <log-level>
+```
+
+#### gogo-reindex-all-search-indexes
+
+Reindex all search indexes.
+
+Syntax:
+
+```
+gogo-reindex-all-search-indexes
+```
+
+#### gogo-reindex-all-spell-check-indexes
+
+Reindex all spell check indexes.
+
+Syntax:
+
+```
+gogo-reindex-all-spell-check-indexes
+```
+
+#### gogo-clear-all-caches
+
+Clear all caches.
+
+Syntax:
+
+```
+gogo-clear-all-caches
+```
+
+This process
+* clear content cached by this VM,
+* clear content cached across the cluster,
+* clear the database cache,
+* and clear the direct servlet cache.
+
+#### gogo-cleanup-portlet-preferences
+
+Clean up portlet preferences.
+
+Syntax:
+
+```
+gogo-cleanup-portlet-preferences
+```
+
+This process removes all orphaned portlet preferences that belong to page revisions. Portlet preferences that belong to a portlet that does not belong to a page revision will be removed. Portlet preferences that belong to runtime portlets will also be removed.
+
+#### gogo-verify-plugin-table
+
+Verify plugin table.
+
+Syntax:
+
+```
+gogo-verify-plugin-table
+```
+
+#### gogo-verify-membership-policies
+
+Verify membership policies.
+
+Syntax:
+
+```
+gogo-verify-membership-policies
+```
 
 ## License
 
