@@ -36,17 +36,52 @@ Furthermore, when an error occurs, the error message is printed to the error out
 
 Execute a Gogo Shell statement, such as it would be executed via the interactive shell.
 
+Syntax:
+
 ```
 gogo-shell <gogo-shell-statement>
+```
+
+#### gogo-shell-script
+
+Execute a Gogo Shell script from a file located on the Liferay Server host.
+
+Syntax:
+
+```
+gogo-shell <remote-gogo-shell-script-path>
 ```
 
 #### gogo-groovy
 
 Execute a Groovy statement, such as it would be executed via the script console of Control Panel. 
 
+Syntax:
+
 ```
 gogo-groovy <groovy-statement>
 ```
+
+#### gogo-groovy-script
+
+Execute a Groovy script from a file located on the Liferay Server host.
+
+Syntax:
+
+```
+gogo-groovy <remote-groovy-script-path>
+```
+
+#### gogo-bundle-get-state
+
+Print the state of a particular bundle.
+
+Syntax:
+
+```
+gogo-bundle-get-version <bundle-symbolic-name> [<bundle-version>]
+```
+
 
 ## License
 
