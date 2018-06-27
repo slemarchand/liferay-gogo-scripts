@@ -80,13 +80,12 @@ set groovy_script " \
 	for (bundle in bundles) { \
 		if(bundle.getSymbolicName().equals(BUNDLE_SYMBOLIC_NAME)) { \
 			foundBundle = bundle; \
+			println(bundle.getVersion().toString()); \
 		}; \
 	}; \
 	if(foundBundle == null) { \
 		throw new Exception('Bundle not found for symbolic name ' + BUNDLE_SYMBOLIC_NAME ); \
 	}; \
-	version = foundBundle.getVersion().toString(); \
-	println(version); \
 ";
 
 send -- " \
