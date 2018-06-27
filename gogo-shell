@@ -68,7 +68,6 @@ set statement [join [lrange $argv 0 end]];
 
 send -- "$statement\n"
 
-
 # Return result
 
 set output ""
