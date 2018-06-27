@@ -169,6 +169,12 @@ Syntax:
 gogo-set-log-level <logger-name> <log-level>
 ```
 
+Example:
+
+```
+gogo-set-log-level com.mycompany.mylogger DEBUG
+```
+
 #### gogo-reindex-all-search-indexes
 
 Reindex all search indexes.
@@ -235,6 +241,12 @@ Syntax:
 
 ```
 gogo-shutdown-alert-message <minutes> <custom-message>
+```
+
+Example:
+
+```
+gogo-shutdown-alert-message 5 'Maintenance operation in progress'
 ```
 
 This process :
