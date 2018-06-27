@@ -233,20 +233,20 @@ Syntax:
 gogo-delete-dl-previews
 ```
 
-#### gogo-shutdown-alert-message
+#### gogo-initiate-shutdown
 
 Display alert message to alert users before server shutdown.
 
 Syntax:
 
 ```
-gogo-shutdown-alert-message <minutes> <custom-message>
+gogo-initiate-shutdown <minutes> <custom-message>
 ```
 
 Example:
 
 ```
-gogo-shutdown-alert-message 5 'Maintenance operation in progress'
+gogo-initiate-shutdown 5 'Maintenance operation in progress'
 ```
 
 This process :
@@ -254,6 +254,8 @@ This process :
 * Display instantly an alert banner to the top of all pages for all user, including your custom message in addition to the Liferay shutdown alert standard message,
 
 * and after the delay specified, display your custom message in full screen for to all users and prevent them to do any action.
+
+This process does not stop the application server: you must do it yourself if you need it.
 
 #### gogo-verify-plugin-table
 
