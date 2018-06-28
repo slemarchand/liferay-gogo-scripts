@@ -172,7 +172,8 @@ gogo-set-log-level <logger-name> <log-level>
 Example:
 
 ```
-gogo-set-log-level com.mycompany.mylogger DEBUG
+$ gogo-set-log-level com.mycompany.mylogger DEBUG
+
 ```
 
 #### gogo-reindex-all-search-indexes
@@ -246,7 +247,8 @@ gogo-initiate-shutdown <minutes> <custom-message>
 Example:
 
 ```
-gogo-initiate-shutdown 5 'Maintenance operation in progress'
+$ gogo-initiate-shutdown 5 'Maintenance operation in progress'
+
 ```
 
 This process :
