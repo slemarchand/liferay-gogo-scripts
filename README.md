@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-The Liferay Gogo Scripts is a set of scripts to perform various administration tasks related to Liferay 7. These scripts use Gogo Shell and are intented to be building blocks for automation.
+The Liferay Gogo Scripts is a set of scripts to perform various administration tasks related to Liferay 7.x. These scripts use Gogo Shell and are intented to be building blocks for automation.
 
 ## Installation
 
