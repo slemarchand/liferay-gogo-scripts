@@ -159,6 +159,16 @@ Syntax:
 gogo-bundle-stop <bundle-symbolic-name> [<bundle-version>]
 ```
 
+#### gogo-bundle-uninstall
+
+Uninstall a particular bundle.
+
+Syntax:
+
+```
+gogo-bundle-uninstall <bundle-symbolic-name> [<bundle-version>]
+```
+
 #### gogo-set-log-level
 
 Set log level for a particular logger.
