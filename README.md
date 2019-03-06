@@ -128,12 +128,12 @@ gogo-bundle-get-version <bundle-symbolic-name> [<bundle-version>]
 Examples
 
 ```
-$ gogo-bundle-get-version com.liferay.portal.search
+$ gogo-bundle-get-state com.liferay.portal.search
 ACTIVE
 ```
 
 ```
-$ gogo-bundle-get-version com.liferay.portal.search 4.0.7
+$ gogo-bundle-get-state com.liferay.portal.search 4.0.7
 ACTIVE
 ```
 
