@@ -122,7 +122,7 @@ Print the state of a particular bundle.
 Syntax:
 
 ```
-gogo-bundle-get-version <bundle-symbolic-name> [<bundle-version>]
+gogo-bundle-get-state <bundle-symbolic-name> [<bundle-version>]
 ```
 
 Examples
