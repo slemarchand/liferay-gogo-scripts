@@ -186,6 +186,15 @@ $ gogo-set-log-level com.mycompany.mylogger DEBUG
 
 ```
 
+If <log-level> is not set the current level of <logger-name> is returned.
+
+Example:
+
+```
+$ gogo-set-log-level com.mycompany 
+Level for com.mycompany: ERROR
+```
+
 #### gogo-reindex-all-search-indexes
 
 Reindex all search indexes.
