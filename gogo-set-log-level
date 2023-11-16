@@ -26,9 +26,10 @@
 # Further documentation: https://github.com/slemarchand/liferay-gogo-scripts
 #
 
-if { $argc < 2 } {
+if { $argc < 1 } {
 	set command [file tail $argv0]
 	send_user "usage: $command <logger-name> <log-level>\n"
+	send_user "If <log-level> is not set the current level of <logger-name> is returned.\n"
 	exit 1
 }
 
@@ -69,7 +70,19 @@ set level [lindex $argv 1];
 
 set groovy_script " \
 	import static com.liferay.util.log4j.Log4JUtil.setLevel; \
-	setLevel('$name','$level',true); \
+        import static com.liferay.util.log4j.Log4JUtil.getOriginalLevel; \
+	level = '$level'; \
+	name = '$name'; \
+        if(!level.isEmpty()) { \
+	    setLevel(name, level, true); \
+ 	    println('Level set'); \
+        } else { \
+  	    try { \
+           	println('Level for ' + name + ': ' + getOriginalLevel(name)); \
+            } catch(java.lang.Exception ex) { \
+        	ex.printStackTrace(); \
+            } \
+ 	} \
 ";
 
 send -- " \
